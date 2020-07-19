@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  registerRoute:"http://localhost:58427/api/Login/register",
+  loginRoute: "http://localhost:58427/api/Login/login",
+  getAccountRoute: "http://localhost:58427/api/Account?guid="
 };
 
 /*

@@ -16,5 +16,22 @@ body{background-image:url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyA
 .nav-link {
     
     width: 900px;
-    
+    color: black;
 }
+
+/* .example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  } */

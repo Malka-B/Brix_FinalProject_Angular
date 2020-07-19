@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './home/welcome.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
@@ -13,17 +12,18 @@ import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { RegisterComponent } from './register/register.component';
-import { CardComponent } from './card/card.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator'
 import {MatTableModule} from '@angular/material/table'
 import { MatSortModule } from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
+import { OpenAccountComponent } from './open-account/open-account.component';
+import { LoginComponent } from './login/login.component';
+import { AccountDetailComponent } from './account-detail/account-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent,WelcomeComponent, RegisterComponent, CardComponent   
+    AppComponent,LoginComponent, AccountDetailComponent, OpenAccountComponent   
   ],
   imports: [
     BrowserModule,
@@ -32,11 +32,12 @@ import {MatIconModule} from '@angular/material/icon';
     AppRoutingModule,
     HttpClientModule,    
     RouterModule.forRoot([
-      {path: 'welcome', component: WelcomeComponent},
-      {path: 'register', component: RegisterComponent},   
-      {path: 'card/:cardId', component: CardComponent},   
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+      {path: 'home', component: LoginComponent},
+      {path: 'register', component: OpenAccountComponent},   
+      {path: 'accountDetail/:accountId', component: AccountDetailComponent}, 
+      // {path: 'accountDetail', component: AccountDetailComponent},  
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: '**', redirectTo: 'home', pathMatch: 'full' }
     ]),       
     BrowserAnimationsModule,
     ReactiveFormsModule,    
@@ -48,8 +49,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatPaginatorModule,
     MatTableModule,
     MatSortModule,     
-    MatIconModule
-   
+    MatIconModule   
   ],  
   bootstrap: [AppComponent],
   exports: [MatDatepickerModule]
