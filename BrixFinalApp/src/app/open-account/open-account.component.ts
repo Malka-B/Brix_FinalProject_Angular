@@ -13,8 +13,9 @@ export class OpenAccountComponent implements OnInit {
 
   registerForm: FormGroup;
   registerObject: IRegisterModel;
-  constructor(private fb: FormBuilder, private _appService: AppService, private _router: Router) {
+  hide = true;
 
+  constructor(private fb: FormBuilder, private _appService: AppService, private _router: Router) {
 
   }
 
@@ -22,7 +23,7 @@ export class OpenAccountComponent implements OnInit {
     this.registerForm = this.fb.group({
       firstName: '',
       lastName: '',
-      email: ['',[Validators.required, Validators.email]],//email = new FormControl('', [Validators.required, Validators.email]);
+      email: ['',[Validators.required, Validators.email]],
       password: ''           
     })
   }
@@ -34,7 +35,7 @@ export class OpenAccountComponent implements OnInit {
         r => {
           if(r === true){
             alert("Register succeeded!");
-            this._router.navigate(["/patient", r])
+            this._router.navigate(["/home"])
           }
           else{
             alert("Register failed! One or more of your details are wrong.Try again!");
@@ -43,12 +44,16 @@ export class OpenAccountComponent implements OnInit {
     })
   }
 
-  getErrorMessage() {
-    
-    if (this.registerForm.get('email').hasError('required')) {
+  emailGetErrorMessage() {        
+    if (this.registerForm.get('email').hasError('required')) {      
       return 'You must enter a value';
     }
-
     return this.registerForm.get('email').hasError('email') ? 'Not a valid email' : '';
+  }
+
+  requiredGetErrorMessage(controlName: string): string{
+    if (this.registerForm.get(controlName).hasError('required')) {      
+      return 'You must enter a value';
+    }
   }
 }

@@ -35,7 +35,7 @@ import { AccountDetailComponent } from './account-detail/account-detail.componen
       {path: 'home', component: LoginComponent},
       {path: 'register', component: OpenAccountComponent},   
       {path: 'accountDetail/:accountId', component: AccountDetailComponent}, 
-      // {path: 'accountDetail', component: AccountDetailComponent},  
+      {path: 'accountDetail', component: AccountDetailComponent},  
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home', pathMatch: 'full' }
     ]),       

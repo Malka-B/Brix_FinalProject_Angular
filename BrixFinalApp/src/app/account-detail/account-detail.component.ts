@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IAccountModel } from '../Models/IAccountModel.model';
 import { AppService } from '../app.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-detail',
@@ -14,7 +14,8 @@ export class AccountDetailComponent implements OnInit {
  accountId: string;
  welcome: string = 'Welcome';
 
- constructor(private _appService: AppService, private _acr: ActivatedRoute) { }
+ constructor(private _appService: AppService, private _acr: ActivatedRoute,private _router: Router) 
+ { }
 
  ngOnInit(): void {
    this._acr.paramMap.subscribe(params => {
@@ -32,14 +33,10 @@ export class AccountDetailComponent implements OnInit {
      }
      );
    }
+ } 
 
-
- }
- edit() {
-
- }
-
- save() {
-
+ logOut(){
+   this.accountId = null;
+   this._router.navigate(["/home"])
  }
 }
