@@ -1,1 +1,12 @@
-.example-card{background:rgb(243, 179, 96);}
+.example-card{
+    background:rgb(243, 179, 96);
+    width: 400px;
+}
+.mat-card-subtitle {
+    /* color: rgba(0,0,0,.54); */
+    color: black;
+}
+.mat-card-title {
+    color: rgba(0,0,0,.54); 
+    
+}

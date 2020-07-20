@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IRegisterModel } from '../Models/IRegisterModel.model';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
@@ -22,7 +22,7 @@ export class OpenAccountComponent implements OnInit {
     this.registerForm = this.fb.group({
       firstName: '',
       lastName: '',
-      email: '',
+      email: ['',[Validators.required, Validators.email]],//email = new FormControl('', [Validators.required, Validators.email]);
       password: ''           
     })
   }
@@ -41,7 +41,14 @@ export class OpenAccountComponent implements OnInit {
           }
         }
     })
-
   }
 
+  getErrorMessage() {
+    
+    if (this.registerForm.get('email').hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.registerForm.get('email').hasError('email') ? 'Not a valid email' : '';
+  }
 }

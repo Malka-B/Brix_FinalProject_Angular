@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   registerRoute:"http://localhost:58427/api/Login/register",
   loginRoute: "http://localhost:58427/api/Login/login",
-  getAccountRoute: "http://localhost:58427/api/Account?guid="
+  getAccountRoute: "http://localhost:58427/api/Account/GetAccountInfo?guid="
 };
 
 /*
