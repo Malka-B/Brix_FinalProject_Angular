@@ -20,10 +20,11 @@ import {MatIconModule} from '@angular/material/icon';
 import { OpenAccountComponent } from './open-account/open-account.component';
 import { LoginComponent } from './login/login.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent, AccountDetailComponent, OpenAccountComponent   
+    AppComponent,LoginComponent, AccountDetailComponent, OpenAccountComponent, TransactionComponent   
   ],
   imports: [
     BrowserModule,
@@ -36,6 +37,7 @@ import { AccountDetailComponent } from './account-detail/account-detail.componen
       {path: 'register', component: OpenAccountComponent},   
       {path: 'accountDetail/:accountId', component: AccountDetailComponent}, 
       {path: 'accountDetail', component: AccountDetailComponent},  
+      {path: 'transaction/:accountId', component: TransactionComponent},  
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home', pathMatch: 'full' }
     ]),       

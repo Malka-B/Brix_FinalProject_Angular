@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IAccountModel } from '../Models/IAccountModel.model';
 import { AppService } from '../app.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -34,6 +34,10 @@ export class AccountDetailComponent implements OnInit {
      );
    }
  } 
+
+ createTransaction(){
+  this._router.navigate(["/transaction", this.accountId]);
+ }
 
  logOut(){
    this.accountId = null;
